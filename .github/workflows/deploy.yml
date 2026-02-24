@@ -24,12 +24,25 @@ jobs:
           repository: developmentseed/deck.gl-raster
           ref: visualizing-embeddings
 
+      - uses: actions/checkout@v4
+        with:
+          repository: gadomski/cogeotiff
+          ref: issues/1419-model-transformation-tag
+          path: cogeotiff
+
       - uses: pnpm/action-setup@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
           cache: pnpm
+
+      - name: Build cogeotiff
+        run: npx tsc -b --pretty
+        working-directory: cogeotiff
+
+      - name: Point @cogeotiff/core to local checkout
+        run: sed -i 's|"@cogeotiff/core":.*|"@cogeotiff/core": "file:../../cogeotiff/packages/core",|' packages/geotiff/package.json
 
       - run: pnpm install
 
