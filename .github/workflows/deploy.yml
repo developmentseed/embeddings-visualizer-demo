@@ -42,7 +42,8 @@ jobs:
         working-directory: cogeotiff
 
       - name: Point @cogeotiff/core to local checkout
-        run: sed -i 's|"@cogeotiff/core":.*|"@cogeotiff/core": "file:../../cogeotiff/packages/core",|' packages/geotiff/package.json
+        run: >
+          sed -i 's#"@cogeotiff/core":.*#"@cogeotiff/core": "file:../../cogeotiff/packages/core",#' packages/geotiff/package.json
 
       - run: pnpm install
 
