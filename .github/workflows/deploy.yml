@@ -23,6 +23,7 @@ jobs:
         with:
           repository: developmentseed/deck.gl-raster
           ref: visualizing-embeddings
+          submodules: true
 
       - uses: actions/checkout@v4
         with:
