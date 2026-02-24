@@ -43,7 +43,7 @@ jobs:
 
       - name: Point @cogeotiff/core to local checkout
         run: >
-          sed -i 's#"@cogeotiff/core":.*#"@cogeotiff/core": "file:../../cogeotiff/packages/core",#' packages/geotiff/package.json
+          sed -i 's#"@cogeotiff/core":.*#"@cogeotiff/core": "file:../../cogeotiff/packages/core",#' packages/geotiff/package.json packages/deck.gl-geotiff/package.json
 
       - run: pnpm install --no-frozen-lockfile
 
