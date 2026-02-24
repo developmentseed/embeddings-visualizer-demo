@@ -38,7 +38,7 @@ jobs:
           cache: pnpm
 
       - name: Build cogeotiff
-        run: npx tsc -b --pretty
+        run: npm install && npm run build
         working-directory: cogeotiff
 
       - name: Point @cogeotiff/core to local checkout
