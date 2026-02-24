@@ -45,7 +45,7 @@ jobs:
         run: >
           sed -i 's#"@cogeotiff/core":.*#"@cogeotiff/core": "file:../../cogeotiff/packages/core",#' packages/geotiff/package.json
 
-      - run: pnpm install
+      - run: pnpm install --no-frozen-lockfile
 
       - name: Build workspace packages
         run: pnpm build
